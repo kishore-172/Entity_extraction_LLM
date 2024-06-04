@@ -1,0 +1,1534 @@
+{
+    "tables": [
+        {
+            "table_name": "products",
+            "description": "Stores product information",
+            "columns": [
+                {
+                    "name": "product_id",
+                    "description": "Unique identifier for each product"
+                },
+                {
+                    "name": "product_name",
+                    "description": "Name of the product"
+                },
+                {
+                    "name": "category",
+                    "description": "Product category (e.g., Smartphone, TV)"
+                },
+                {
+                    "name": "launch_date",
+                    "description": "Launch date of the product"
+                },
+                {
+                    "name": "price",
+                    "description": "Price of the product"
+                },
+                {
+                    "name": "manufacturer",
+                    "description": "Manufacturer of the product"
+                },
+                {
+                    "name": "warranty_period",
+                    "description": "Warranty period of the product"
+                },
+                {
+                    "name": "stock_quantity",
+                    "description": "Quantity of product in stock"
+                },
+                {
+                    "name": "rating",
+                    "description": "Customer rating of the product"
+                },
+                {
+                    "name": "dimensions",
+                    "description": "Dimensions of the product"
+                },
+                {
+                    "name": "weight",
+                    "description": "Weight of the product"
+                },
+                {
+                    "name": "color",
+                    "description": "Color of the product"
+                },
+                {
+                    "name": "material",
+                    "description": "Material of the product"
+                },
+                {
+                    "name": "power_usage",
+                    "description": "Power usage of the product"
+                },
+                {
+                    "name": "model_number",
+                    "description": "Model number of the product"
+                }
+            ],
+            "data": [
+                [
+                    101,
+                    "Galaxy S21",
+                    "Smartphone",
+                    "2021-01-29",
+                    799.99,
+                    "Samsung",
+                    "2 years",
+                    5000,
+                    4.5,
+                    "151.7 x 71.2 x 7.9 mm",
+                    "169 g",
+                    "Phantom Gray",
+                    "Aluminum",
+                    "10W",
+                    "SM-G991U"
+                ],
+                [
+                    102,
+                    "QLED TV",
+                    "TV",
+                    "2020-11-10",
+                    1299.99,
+                    "Samsung",
+                    "3 years",
+                    300,
+                    4.7,
+                    "1449.3 x 829.3 x 25.4 mm",
+                    "21.6 kg",
+                    "Black",
+                    "Plastic",
+                    "100W",
+                    "QN55Q60TAFXZA"
+                ]
+            ]
+        },
+        {
+            "table_name": "sales",
+            "description": "Stores sales information",
+            "columns": [
+                {
+                    "name": "sale_id",
+                    "description": "Unique identifier for each sale"
+                },
+                {
+                    "name": "customer_id",
+                    "description": "ID of the customer who made the purchase"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the purchased product"
+                },
+                {
+                    "name": "sale_date",
+                    "description": "Date of the sale"
+                },
+                {
+                    "name": "quantity",
+                    "description": "Quantity of products sold"
+                },
+                {
+                    "name": "total_amount",
+                    "description": "Total amount for the sale"
+                },
+                {
+                    "name": "sales_channel",
+                    "description": "Channel through which the sale was made (e.g., Online, In-store)"
+                },
+                {
+                    "name": "payment_method",
+                    "description": "Payment method used for the sale"
+                },
+                {
+                    "name": "discount",
+                    "description": "Discount applied to the sale"
+                },
+                {
+                    "name": "sales_rep",
+                    "description": "Sales representative handling the sale"
+                },
+                {
+                    "name": "delivery_date",
+                    "description": "Delivery date of the sold product"
+                },
+                {
+                    "name": "delivery_status",
+                    "description": "Delivery status of the sold product"
+                },
+                {
+                    "name": "invoice_number",
+                    "description": "Invoice number for the sale"
+                },
+                {
+                    "name": "shipping_cost",
+                    "description": "Shipping cost for the sale"
+                },
+                {
+                    "name": "tax_amount",
+                    "description": "Tax amount applied to the sale"
+                }
+            ],
+            "data": [
+                [
+                    1001,
+                    1,
+                    101,
+                    "2021-02-15",
+                    1,
+                    799.99,
+                    "Online",
+                    "Credit Card",
+                    0,
+                    "Alice Johnson",
+                    "2021-02-20",
+                    "Delivered",
+                    "INV1001",
+                    20,
+                    60
+                ],
+                [
+                    1002,
+                    2,
+                    102,
+                    "2021-03-01",
+                    1,
+                    1299.99,
+                    "In-store",
+                    "Cash",
+                    100,
+                    "Bob Lee",
+                    "2021-03-03",
+                    "Delivered",
+                    "INV1002",
+                    0,
+                    90
+                ]
+            ]
+        },
+        {
+            "table_name": "support_tickets",
+            "description": "Stores customer support ticket information",
+            "columns": [
+                {
+                    "name": "ticket_id",
+                    "description": "Unique identifier for each support ticket"
+                },
+                {
+                    "name": "customer_id",
+                    "description": "ID of the customer who raised the ticket"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the product related to the ticket"
+                },
+                {
+                    "name": "issue_date",
+                    "description": "Date the issue was reported"
+                },
+                {
+                    "name": "issue_type",
+                    "description": "Type of issue (e.g., Hardware, Software)"
+                },
+                {
+                    "name": "resolution_date",
+                    "description": "Date the issue was resolved"
+                },
+                {
+                    "name": "status",
+                    "description": "Status of the ticket (e.g., Open, Closed)"
+                },
+                {
+                    "name": "support_agent",
+                    "description": "Support agent handling the ticket"
+                },
+                {
+                    "name": "priority",
+                    "description": "Priority level of the ticket"
+                },
+                {
+                    "name": "response_time",
+                    "description": "Time taken to respond to the ticket"
+                },
+                {
+                    "name": "issue_description",
+                    "description": "Description of the issue"
+                },
+                {
+                    "name": "resolution_details",
+                    "description": "Details of the resolution"
+                },
+                {
+                    "name": "feedback_score",
+                    "description": "Feedback score given by the customer"
+                },
+                {
+                    "name": "follow_up_date",
+                    "description": "Date for a follow-up on the ticket"
+                },
+                {
+                    "name": "category",
+                    "description": "Category of the issue"
+                }
+            ],
+            "data": [
+                [
+                    5001,
+                    1,
+                    101,
+                    "2021-03-05",
+                    "Hardware",
+                    "2021-03-10",
+                    "Closed",
+                    "Sam Carter",
+                    "High",
+                    "2 hours",
+                    "Battery issue",
+                    "Replaced battery",
+                    5,
+                    "2021-03-15",
+                    "Technical"
+                ],
+                [
+                    5002,
+                    2,
+                    102,
+                    "2021-04-12",
+                    "Software",
+                    "2021-04-15",
+                    "Closed",
+                    "Sara Collins",
+                    "Medium",
+                    "4 hours",
+                    "Software update issue",
+                    "Reinstalled software",
+                    4,
+                    "2021-04-20",
+                    "Technical"
+                ]
+            ]
+        },
+        {
+            "table_name": "marketing_campaigns",
+            "description": "Stores marketing campaign information",
+            "columns": [
+                {
+                    "name": "campaign_id",
+                    "description": "Unique identifier for each campaign"
+                },
+                {
+                    "name": "campaign_name",
+                    "description": "Name of the campaign"
+                },
+                {
+                    "name": "start_date",
+                    "description": "Start date of the campaign"
+                },
+                {
+                    "name": "end_date",
+                    "description": "End date of the campaign"
+                },
+                {
+                    "name": "budget",
+                    "description": "Budget allocated for the campaign"
+                },
+                {
+                    "name": "target_audience",
+                    "description": "Target audience for the campaign"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the promoted product"
+                },
+                {
+                    "name": "channels",
+                    "description": "Marketing channels used in the campaign (e.g., TV, Social Media)"
+                },
+                {
+                    "name": "goal",
+                    "description": "Primary goal of the campaign (e.g., Brand Awareness, Lead Generation)"
+                },
+                {
+                    "name": "region",
+                    "description": "Geographical region targeted by the campaign"
+                },
+                {
+                    "name": "creative_idea",
+                    "description": "Creative idea or theme of the campaign"
+                },
+                {
+                    "name": "ad_spend",
+                    "description": "Amount spent on advertising during the campaign"
+                },
+                {
+                    "name": "leads_generated",
+                    "description": "Number of leads generated through the campaign"
+                },
+                {
+                    "name": "conversions",
+                    "description": "Number of conversions achieved through the campaign"
+                },
+                {
+                    "name": "roi",
+                    "description": "Return on investment for the campaign"
+                }
+            ],
+            "data": [
+                [
+                    1,
+                    "Summer Sale",
+                    "2023-06-01",
+                    "2023-06-30",
+                    100000,
+                    "Young Adults",
+                    101,
+                    "Social Media, Email",
+                    "Lead Generation",
+                    "North America",
+                    "Cool for the Summer",
+                    60000,
+                    1500,
+                    300,
+                    1.5
+                ],
+                [
+                    2,
+                    "Holiday Discount",
+                    "2023-12-01",
+                    "2023-12-31",
+                    150000,
+                    "Families",
+                    102,
+                    "TV, Social Media",
+                    "Brand Awareness",
+                    "Europe",
+                    "Home for the Holidays",
+                    90000,
+                    2000,
+                    500,
+                    1.8
+                ]
+            ]
+        },
+        {
+            "table_name": "products",
+            "description": "Stores product information",
+            "columns": [
+                {
+                    "name": "product_id",
+                    "description": "Unique identifier for each product"
+                },
+                {
+                    "name": "product_name",
+                    "description": "Name of the product"
+                },
+                {
+                    "name": "category",
+                    "description": "Product category (e.g., Smartphone, TV)"
+                },
+                {
+                    "name": "launch_date",
+                    "description": "Launch date of the product"
+                },
+                {
+                    "name": "price",
+                    "description": "Price of the product"
+                },
+                {
+                    "name": "manufacturer",
+                    "description": "Manufacturer of the product"
+                },
+                {
+                    "name": "warranty_period",
+                    "description": "Warranty period of the product"
+                },
+                {
+                    "name": "stock_quantity",
+                    "description": "Quantity of product in stock"
+                },
+                {
+                    "name": "rating",
+                    "description": "Customer rating of the product"
+                },
+                {
+                    "name": "dimensions",
+                    "description": "Dimensions of the product"
+                },
+                {
+                    "name": "weight",
+                    "description": "Weight of the product"
+                },
+                {
+                    "name": "color",
+                    "description": "Color of the product"
+                },
+                {
+                    "name": "material",
+                    "description": "Material of the product"
+                },
+                {
+                    "name": "power_usage",
+                    "description": "Power usage of the product"
+                },
+                {
+                    "name": "model_number",
+                    "description": "Model number of the product"
+                }
+            ],
+            "data": [
+                [
+                    101,
+                    "Galaxy S21",
+                    "Smartphone",
+                    "2021-01-29",
+                    799.99,
+                    "Samsung",
+                    "2 years",
+                    5000,
+                    4.5,
+                    "151.7 x 71.2 x 7.9 mm",
+                    "169 g",
+                    "Phantom Gray",
+                    "Aluminum",
+                    "10W",
+                    "SM-G991U"
+                ],
+                [
+                    102,
+                    "QLED TV",
+                    "TV",
+                    "2020-11-10",
+                    1299.99,
+                    "Samsung",
+                    "3 years",
+                    300,
+                    4.7,
+                    "1449.3 x 829.3 x 25.4 mm",
+                    "21.6 kg",
+                    "Black",
+                    "Plastic",
+                    "100W",
+                    "QN55Q60TAFXZA"
+                ]
+            ]
+        },
+        {
+            "table_name": "employees",
+            "description": "Stores employee information",
+            "columns": [
+                {
+                    "name": "employee_id",
+                    "description": "Unique identifier for each employee"
+                },
+                {
+                    "name": "first_name",
+                    "description": "First name of the employee"
+                },
+                {
+                    "name": "last_name",
+                    "description": "Last name of the employee"
+                },
+                {
+                    "name": "email",
+                    "description": "Email address of the employee"
+                },
+                {
+                    "name": "phone_number",
+                    "description": "Phone number of the employee"
+                },
+                {
+                    "name": "hire_date",
+                    "description": "Date the employee was hired"
+                },
+                {
+                    "name": "job_title",
+                    "description": "Job title of the employee"
+                },
+                {
+                    "name": "department",
+                    "description": "Department where the employee works"
+                },
+                {
+                    "name": "manager_id",
+                    "description": "ID of the employee's manager"
+                },
+                {
+                    "name": "salary",
+                    "description": "Annual salary of the employee"
+                },
+                {
+                    "name": "bonus",
+                    "description": "Annual bonus of the employee"
+                },
+                {
+                    "name": "commission_pct",
+                    "description": "Commission percentage of the employee"
+                },
+                {
+                    "name": "address",
+                    "description": "Address of the employee"
+                },
+                {
+                    "name": "city",
+                    "description": "City of the employee"
+                },
+                {
+                    "name": "state",
+                    "description": "State of the employee"
+                }
+            ],
+            "data": [
+                [
+                    301,
+                    "Alice",
+                    "Johnson",
+                    "alice.johnson@company.com",
+                    "333-444-5555",
+                    "2015-06-01",
+                    "Sales Manager",
+                    "Sales",
+                    201,
+                    90000,
+                    5000,
+                    10,
+                    "456 Maple St",
+                    "Seattle",
+                    "WA"
+                ],
+                [
+                    302,
+                    "Bob",
+                    "Lee",
+                    "bob.lee@company.com",
+                    "444-555-6666",
+                    "2018-09-15",
+                    "Marketing Specialist",
+                    "Marketing",
+                    202,
+                    60000,
+                    3000,
+                    5,
+                    "789 Oak St",
+                    "Chicago",
+                    "IL"
+                ]
+            ]
+        },
+        {
+            "table_name": "employees",
+            "description": "Stores employee information",
+            "columns": [
+                {
+                    "name": "employee_id",
+                    "description": "Unique identifier for each employee"
+                },
+                {
+                    "name": "first_name",
+                    "description": "First name of the employee"
+                },
+                {
+                    "name": "last_name",
+                    "description": "Last name of the employee"
+                },
+                {
+                    "name": "email",
+                    "description": "Email address of the employee"
+                },
+                {
+                    "name": "phone_number",
+                    "description": "Phone number of the employee"
+                },
+                {
+                    "name": "hire_date",
+                    "description": "Date the employee was hired"
+                },
+                {
+                    "name": "job_title",
+                    "description": "Job title of the employee"
+                },
+                {
+                    "name": "department",
+                    "description": "Department where the employee works"
+                },
+                {
+                    "name": "manager_id",
+                    "description": "ID of the employee's manager"
+                },
+                {
+                    "name": "salary",
+                    "description": "Annual salary of the employee"
+                },
+                {
+                    "name": "bonus",
+                    "description": "Annual bonus of the employee"
+                },
+                {
+                    "name": "commission_pct",
+                    "description": "Commission percentage of the employee"
+                },
+                {
+                    "name": "address",
+                    "description": "Address of the employee"
+                },
+                {
+                    "name": "city",
+                    "description": "City of the employee"
+                },
+                {
+                    "name": "state",
+                    "description": "State of the employee"
+                }
+            ],
+            "data": [
+                [
+                    301,
+                    "Alice",
+                    "Johnson",
+                    "alice.johnson@company.com",
+                    "333-444-5555",
+                    "2015-06-01",
+                    "Sales Manager",
+                    "Sales",
+                    201,
+                    90000,
+                    5000,
+                    10,
+                    "456 Maple St",
+                    "Seattle",
+                    "WA"
+                ],
+                [
+                    302,
+                    "Bob",
+                    "Lee",
+                    "bob.lee@company.com",
+                    "444-555-6666",
+                    "2018-09-15",
+                    "Marketing Specialist",
+                    "Marketing",
+                    202,
+                    60000,
+                    3000,
+                    5,
+                    "789 Oak St",
+                    "Chicago",
+                    "IL"
+                ]
+            ]
+        },
+        {
+            "table_name": "departments",
+            "description": "Stores department information",
+            "columns": [
+                {
+                    "name": "department_id",
+                    "description": "Unique identifier for each department"
+                },
+                {
+                    "name": "department_name",
+                    "description": "Name of the department"
+                },
+                {
+                    "name": "manager_id",
+                    "description": "ID of the department manager"
+                },
+                {
+                    "name": "location",
+                    "description": "Location of the department"
+                },
+                {
+                    "name": "budget",
+                    "description": "Annual budget of the department"
+                },
+                {
+                    "name": "phone_number",
+                    "description": "Contact phone number for the department"
+                },
+                {
+                    "name": "email",
+                    "description": "Contact email for the department"
+                },
+                {
+                    "name": "number_of_employees",
+                    "description": "Number of employees in the department"
+                },
+                {
+                    "name": "established_date",
+                    "description": "Date the department was established"
+                },
+                {
+                    "name": "department_goal",
+                    "description": "Primary goal of the department"
+                },
+                {
+                    "name": "performance_rating",
+                    "description": "Performance rating of the department"
+                },
+                {
+                    "name": "primary_function",
+                    "description": "Primary function of the department"
+                },
+                {
+                    "name": "subsidiary",
+                    "description": "Subsidiary under which the department operates"
+                },
+                {
+                    "name": "main_product",
+                    "description": "Main product the department deals with"
+                },
+                {
+                    "name": "strategy",
+                    "description": "Strategic goals of the department"
+                }
+            ],
+            "data": [
+                [
+                    101,
+                    "Sales",
+                    301,
+                    "Building A",
+                    500000,
+                    "555-666-7777",
+                    "sales@company.com",
+                    50,
+                    "2010-01-01",
+                    "Increase revenue",
+                    4.5,
+                    "Selling products",
+                    "Global",
+                    "Smartphones",
+                    "Expand market share"
+                ],
+                [
+                    102,
+                    "Marketing",
+                    302,
+                    "Building B",
+                    300000,
+                    "666-777-8888",
+                    "marketing@company.com",
+                    40,
+                    "2011-02-01",
+                    "Enhance brand visibility",
+                    4.2,
+                    "Promoting products",
+                    "Global",
+                    "Advertising campaigns",
+                    "Boost brand recognition"
+                ]
+            ]
+        },
+        {
+            "table_name": "inventory",
+            "description": "Stores inventory information",
+            "columns": [
+                {
+                    "name": "inventory_id",
+                    "description": "Unique identifier for each inventory record"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the product in inventory"
+                },
+                {
+                    "name": "warehouse_location",
+                    "description": "Location of the warehouse"
+                },
+                {
+                    "name": "stock_quantity",
+                    "description": "Quantity of product in stock"
+                },
+                {
+                    "name": "reorder_level",
+                    "description": "Stock level at which reorder is needed"
+                },
+                {
+                    "name": "reorder_quantity",
+                    "description": "Quantity to reorder when stock is low"
+                },
+                {
+                    "name": "supplier_id",
+                    "description": "ID of the product supplier"
+                },
+                {
+                    "name": "batch_number",
+                    "description": "Batch number of the product"
+                },
+                {
+                    "name": "expiry_date",
+                    "description": "Expiry date of the product batch"
+                },
+                {
+                    "name": "manufacture_date",
+                    "description": "Manufacture date of the product batch"
+                },
+                {
+                    "name": "storage_conditions",
+                    "description": "Storage conditions for the product"
+                },
+                {
+                    "name": "last_restock_date",
+                    "description": "Date when the product was last restocked"
+                },
+                {
+                    "name": "lead_time",
+                    "description": "Lead time for product replenishment"
+                },
+                {
+                    "name": "cost_per_unit",
+                    "description": "Cost per unit of the product"
+                },
+                {
+                    "name": "total_value",
+                    "description": "Total value of the inventory"
+                }
+            ],
+            "data": [
+                [
+                    2001,
+                    101,
+                    "Warehouse 1",
+                    5000,
+                    500,
+                    1000,
+                    1,
+                    "BN001",
+                    "2023-12-31",
+                    "2020-12-01",
+                    "Cool, dry place",
+                    "2021-06-01",
+                    "30 days",
+                    400,
+                    2000000
+                ],
+                [
+                    2002,
+                    102,
+                    "Warehouse 2",
+                    300,
+                    50,
+                    200,
+                    2,
+                    "BN002",
+                    "2025-12-31",
+                    "2020-11-01",
+                    "Cool, dry place",
+                    "2021-06-10",
+                    "45 days",
+                    600,
+                    179997
+                ]
+            ]
+        },
+        {
+            "table_name": "suppliers",
+            "description": "Stores supplier information",
+            "columns": [
+                {
+                    "name": "supplier_id",
+                    "description": "Unique identifier for each supplier"
+                },
+                {
+                    "name": "supplier_name",
+                    "description": "Name of the supplier"
+                },
+                {
+                    "name": "contact_name",
+                    "description": "Contact person's name at the supplier"
+                },
+                {
+                    "name": "contact_email",
+                    "description": "Contact person's email at the supplier"
+                },
+                {
+                    "name": "contact_phone",
+                    "description": "Contact person's phone number at the supplier"
+                },
+                {
+                    "name": "address",
+                    "description": "Address of the supplier"
+                },
+                {
+                    "name": "city",
+                    "description": "City where the supplier is located"
+                },
+                {
+                    "name": "state",
+                    "description": "State where the supplier is located"
+                },
+                {
+                    "name": "zip_code",
+                    "description": "ZIP code of the supplier's location"
+                },
+                {
+                    "name": "country",
+                    "description": "Country where the supplier is located"
+                },
+                {
+                    "name": "products_supplied",
+                    "description": "Products supplied by the supplier"
+                },
+                {
+                    "name": "rating",
+                    "description": "Rating of the supplier"
+                },
+                {
+                    "name": "payment_terms",
+                    "description": "Payment terms agreed with the supplier"
+                },
+                {
+                    "name": "delivery_schedule",
+                    "description": "Delivery schedule agreed with the supplier"
+                },
+                {
+                    "name": "last_order_date",
+                    "description": "Date when the last order was placed with the supplier"
+                }
+            ],
+            "data": [
+                [
+                    1,
+                    "Tech Supplies Co.",
+                    "Emily Green",
+                    "emily.green@techsupplies.com",
+                    "111-222-3333",
+                    "789 Industrial Way",
+                    "San Francisco",
+                    "CA",
+                    "94103",
+                    "USA",
+                    "Smartphones",
+                    4.8,
+                    "Net 30",
+                    "Weekly",
+                    "2021-05-15"
+                ],
+                [
+                    2,
+                    "Home Electronics Inc.",
+                    "Michael Brown",
+                    "michael.brown@homeelectronics.com",
+                    "222-333-4444",
+                    "123 Tech Park",
+                    "Austin",
+                    "TX",
+                    "73301",
+                    "USA",
+                    "TVs",
+                    4.6,
+                    "Net 60",
+                    "Bi-weekly",
+                    "2021-06-01"
+                ]
+            ]
+        },
+        {
+            "table_name": "orders",
+            "description": "Stores order information",
+            "columns": [
+                {
+                    "name": "order_id",
+                    "description": "Unique identifier for each order"
+                },
+                {
+                    "name": "customer_id",
+                    "description": "ID of the customer who placed the order"
+                },
+                {
+                    "name": "order_date",
+                    "description": "Date when the order was placed"
+                },
+                {
+                    "name": "order_status",
+                    "description": "Current status of the order (e.g., Processing, Shipped, Delivered)"
+                },
+                {
+                    "name": "shipping_date",
+                    "description": "Date when the order was shipped"
+                },
+                {
+                    "name": "delivery_date",
+                    "description": "Date when the order was delivered"
+                },
+                {
+                    "name": "shipping_method",
+                    "description": "Shipping method used for the order"
+                },
+                {
+                    "name": "tracking_number",
+                    "description": "Tracking number for the shipment"
+                },
+                {
+                    "name": "billing_address",
+                    "description": "Billing address for the order"
+                },
+                {
+                    "name": "shipping_address",
+                    "description": "Shipping address for the order"
+                },
+                {
+                    "name": "payment_method",
+                    "description": "Payment method used for the order"
+                },
+                {
+                    "name": "total_amount",
+                    "description": "Total amount for the order"
+                },
+                {
+                    "name": "tax_amount",
+                    "description": "Tax amount for the order"
+                },
+                {
+                    "name": "discount_amount",
+                    "description": "Discount amount applied to the order"
+                },
+                {
+                    "name": "currency",
+                    "description": "Currency in which the order was placed"
+                }
+            ],
+            "data": [
+                [
+                    1001,
+                    1,
+                    "2024-01-15",
+                    "Processing",
+                    "2024-01-16",
+                    "2024-01-18",
+                    "Standard Shipping",
+                    "TRK123456",
+                    "123 Main St, New York, NY, 10001",
+                    "123 Main St, New York, NY, 10001",
+                    "Credit Card",
+                    899.99,
+                    80.99,
+                    50.0,
+                    "USD"
+                ],
+                [
+                    1002,
+                    2,
+                    "2024-02-10",
+                    "Shipped",
+                    "2024-02-12",
+                    "2024-02-14",
+                    "Express Shipping",
+                    "TRK654321",
+                    "456 High St, London, SW1A 1AA",
+                    "456 High St, London, SW1A 1AA",
+                    "PayPal",
+                    1299.99,
+                    120.99,
+                    0.0,
+                    "GBP"
+                ]
+            ]
+        },
+        {
+            "table_name": "customers",
+            "description": "Stores customer information",
+            "columns": [
+                {
+                    "name": "customer_id",
+                    "description": "Unique identifier for each customer"
+                },
+                {
+                    "name": "first_name",
+                    "description": "First name of the customer"
+                },
+                {
+                    "name": "last_name",
+                    "description": "Last name of the customer"
+                },
+                {
+                    "name": "email",
+                    "description": "Email address of the customer"
+                },
+                {
+                    "name": "phone_number",
+                    "description": "Phone number of the customer"
+                },
+                {
+                    "name": "registration_date",
+                    "description": "Date the customer registered"
+                },
+                {
+                    "name": "country",
+                    "description": "Country of the customer"
+                },
+                {
+                    "name": "address",
+                    "description": "Address of the customer"
+                },
+                {
+                    "name": "city",
+                    "description": "City of the customer"
+                },
+                {
+                    "name": "state",
+                    "description": "State of the customer"
+                },
+                {
+                    "name": "zip_code",
+                    "description": "ZIP code of the customer"
+                },
+                {
+                    "name": "date_of_birth",
+                    "description": "Date of birth of the customer"
+                },
+                {
+                    "name": "gender",
+                    "description": "Gender of the customer"
+                },
+                {
+                    "name": "loyalty_status",
+                    "description": "Loyalty status of the customer (e.g., Gold, Silver)"
+                },
+                {
+                    "name": "last_purchase_date",
+                    "description": "Date of the last purchase made by the customer"
+                }
+            ],
+            "data": [
+                [
+                    1,
+                    "John",
+                    "Doe",
+                    "john.doe@example.com",
+                    "123-456-7890",
+                    "2020-01-01",
+                    "USA",
+                    "123 Main St",
+                    "New York",
+                    "NY",
+                    "10001",
+                    "1980-01-01",
+                    "Male",
+                    "Gold",
+                    "2021-05-01"
+                ],
+                [
+                    2,
+                    "Jane",
+                    "Smith",
+                    "jane.smith@example.com",
+                    "234-567-8901",
+                    "2019-06-15",
+                    "UK",
+                    "456 High St",
+                    "London",
+                    "",
+                    "SW1A 1AA",
+                    "1985-07-15",
+                    "Female",
+                    "Silver",
+                    "2021-06-01"
+                ]
+            ]
+        },
+        {
+            "table_name": "products",
+            "description": "Stores product information",
+            "columns": [
+                {
+                    "name": "product_id",
+                    "description": "Unique identifier for each product"
+                },
+                {
+                    "name": "product_name",
+                    "description": "Name of the product"
+                },
+                {
+                    "name": "category",
+                    "description": "Product category (e.g., Smartphone, TV)"
+                },
+                {
+                    "name": "launch_date",
+                    "description": "Launch date of the product"
+                },
+                {
+                    "name": "price",
+                    "description": "Price of the product"
+                },
+                {
+                    "name": "manufacturer",
+                    "description": "Manufacturer of the product"
+                },
+                {
+                    "name": "warranty_period",
+                    "description": "Warranty period of the product"
+                },
+                {
+                    "name": "stock_quantity",
+                    "description": "Quantity of product in stock"
+                },
+                {
+                    "name": "rating",
+                    "description": "Customer rating of the product"
+                },
+                {
+                    "name": "dimensions",
+                    "description": "Dimensions of the product"
+                },
+                {
+                    "name": "weight",
+                    "description": "Weight of the product"
+                },
+                {
+                    "name": "color",
+                    "description": "Color of the product"
+                },
+                {
+                    "name": "material",
+                    "description": "Material of the product"
+                },
+                {
+                    "name": "power_usage",
+                    "description": "Power usage of the product"
+                },
+                {
+                    "name": "model_number",
+                    "description": "Model number of the product"
+                }
+            ],
+            "data": [
+                [
+                    101,
+                    "Galaxy S21",
+                    "Smartphone",
+                    "2021-01-29",
+                    799.99,
+                    "Samsung",
+                    "2 years",
+                    5000,
+                    4.5,
+                    "151.7 x 71.2 x 7.9 mm",
+                    "169 g",
+                    "Phantom Gray",
+                    "Aluminum",
+                    "10W",
+                    "SM-G991U"
+                ],
+                [
+                    102,
+                    "QLED TV",
+                    "TV",
+                    "2020-11-10",
+                    1299.99,
+                    "Samsung",
+                    "3 years",
+                    300,
+                    4.7,
+                    "1449.3 x 829.3 x 25.4 mm",
+                    "21.6 kg",
+                    "Black",
+                    "Plastic",
+                    "100W",
+                    "QN55Q60TAFXZA"
+                ]
+            ]
+        },
+        {
+            "table_name": "sales",
+            "description": "Stores sales information",
+            "columns": [
+                {
+                    "name": "sale_id",
+                    "description": "Unique identifier for each sale"
+                },
+                {
+                    "name": "customer_id",
+                    "description": "ID of the customer who made the purchase"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the purchased product"
+                },
+                {
+                    "name": "sale_date",
+                    "description": "Date of the sale"
+                },
+                {
+                    "name": "quantity",
+                    "description": "Quantity of products sold"
+                },
+                {
+                    "name": "total_amount",
+                    "description": "Total amount for the sale"
+                },
+                {
+                    "name": "sales_channel",
+                    "description": "Channel through which the sale was made (e.g., Online, In-store)"
+                },
+                {
+                    "name": "payment_method",
+                    "description": "Payment method used for the sale"
+                },
+                {
+                    "name": "discount",
+                    "description": "Discount applied to the sale"
+                },
+                {
+                    "name": "sales_rep",
+                    "description": "Sales representative handling the sale"
+                },
+                {
+                    "name": "delivery_date",
+                    "description": "Delivery date of the sold product"
+                },
+                {
+                    "name": "delivery_status",
+                    "description": "Delivery status of the sold product"
+                },
+                {
+                    "name": "invoice_number",
+                    "description": "Invoice number for the sale"
+                },
+                {
+                    "name": "shipping_cost",
+                    "description": "Shipping cost for the sale"
+                },
+                {
+                    "name": "tax_amount",
+                    "description": "Tax amount applied to the sale"
+                }
+            ],
+            "data": [
+                [
+                    1001,
+                    1,
+                    101,
+                    "2021-02-15",
+                    1,
+                    799.99,
+                    "Online",
+                    "Credit Card",
+                    0,
+                    "Alice Johnson",
+                    "2021-02-20",
+                    "Delivered",
+                    "INV1001",
+                    20,
+                    60
+                ],
+                [
+                    1002,
+                    2,
+                    102,
+                    "2021-03-01",
+                    1,
+                    1299.99,
+                    "In-store",
+                    "Cash",
+                    100,
+                    "Bob Lee",
+                    "2021-03-03",
+                    "Delivered",
+                    "INV1002",
+                    0,
+                    90
+                ]
+            ]
+        },
+        {
+            "table_name": "support_tickets",
+            "description": "Stores customer support ticket information",
+            "columns": [
+                {
+                    "name": "ticket_id",
+                    "description": "Unique identifier for each support ticket"
+                },
+                {
+                    "name": "customer_id",
+                    "description": "ID of the customer who raised the ticket"
+                },
+                {
+                    "name": "product_id",
+                    "description": "ID of the product related to the ticket"
+                },
+                {
+                    "name": "issue_date",
+                    "description": "Date the issue was reported"
+                },
+                {
+                    "name": "issue_type",
+                    "description": "Type of issue (e.g., Hardware, Software)"
+                },
+                {
+                    "name": "resolution_date",
+                    "description": "Date the issue was resolved"
+                },
+                {
+                    "name": "status",
+                    "description": "Status of the ticket (e.g., Open, Closed)"
+                },
+                {
+                    "name": "support_agent",
+                    "description": "Support agent handling the ticket"
+                },
+                {
+                    "name": "priority",
+                    "description": "Priority level of the ticket"
+                },
+                {
+                    "name": "response_time",
+                    "description": "Time taken to respond to the ticket"
+                },
+                {
+                    "name": "issue_description",
+                    "description": "Description of the issue"
+                },
+                {
+                    "name": "resolution_details",
+                    "description": "Details of the resolution"
+                },
+                {
+                    "name": "feedback_score",
+                    "description": "Feedback score given by the customer"
+                },
+                {
+                    "name": "follow_up_date",
+                    "description": "Date for a follow-up on the ticket"
+                },
+                {
+                    "name": "category",
+                    "description": "Category of the issue"
+                }
+            ],
+            "data": [
+                [
+                    5001,
+                    1,
+                    101,
+                    "2021-03-05",
+                    "Hardware",
+                    "2021-03-10",
+                    "Closed",
+                    "Sam Carter",
+                    "High",
+                    "2 hours",
+                    "Battery issue",
+                    "Replaced battery",
+                    5,
+                    "2021-03-15",
+                    "Technical"
+                ],
+                [
+                    5002,
+                    2,
+                    102,
+                    "2021-04-12",
+                    "Software",
+                    "2021-04-15",
+                    "Closed",
+                    "Sara Collins",
+                    "Medium",
+                    "4 hours",
+                    "Software update issue",
+                    "Reinstalled software",
+                    4,
+                    "2021-04-20",
+                    "Technical"
+                ]
+            ]
+        }
+    ]
+}
