@@ -1,0 +1,250 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#1f78b4", "id": "products", "label": "products", "shape": "dot", "title": "Stores product information"}, {"color": "#33a02c", "id": "product_id", "label": "product_id", "shape": "dot", "title": "Unique identifier for each product"}, {"color": "#33a02c", "id": "product_name", "label": "product_name", "shape": "dot", "title": "Name of the product"}, {"color": "#33a02c", "id": "category", "label": "category", "shape": "dot", "title": "Product category (e.g., Smartphone, TV)"}, {"color": "#33a02c", "id": "launch_date", "label": "launch_date", "shape": "dot", "title": "Launch date of the product"}, {"color": "#33a02c", "id": "price", "label": "price", "shape": "dot", "title": "Price of the product"}, {"color": "#33a02c", "id": "manufacturer", "label": "manufacturer", "shape": "dot", "title": "Manufacturer of the product"}, {"color": "#33a02c", "id": "warranty_period", "label": "warranty_period", "shape": "dot", "title": "Warranty period of the product"}, {"color": "#33a02c", "id": "stock_quantity", "label": "stock_quantity", "shape": "dot", "title": "Quantity of product in stock"}, {"color": "#33a02c", "id": "rating", "label": "rating", "shape": "dot", "title": "Customer rating of the product"}, {"color": "#33a02c", "id": "dimensions", "label": "dimensions", "shape": "dot", "title": "Dimensions of the product"}, {"color": "#33a02c", "id": "weight", "label": "weight", "shape": "dot", "title": "Weight of the product"}, {"color": "#33a02c", "id": "color", "label": "color", "shape": "dot", "title": "Color of the product"}, {"color": "#33a02c", "id": "material", "label": "material", "shape": "dot", "title": "Material of the product"}, {"color": "#33a02c", "id": "power_usage", "label": "power_usage", "shape": "dot", "title": "Power usage of the product"}, {"color": "#33a02c", "id": "model_number", "label": "model_number", "shape": "dot", "title": "Model number of the product"}, {"color": "#1f78b4", "id": "sales", "label": "sales", "shape": "dot", "title": "Stores sales information"}, {"color": "#33a02c", "id": "sale_id", "label": "sale_id", "shape": "dot", "title": "Unique identifier for each sale"}, {"color": "#33a02c", "id": "customer_id", "label": "customer_id", "shape": "dot", "title": "ID of the customer who made the purchase"}, {"color": "#33a02c", "id": "sale_date", "label": "sale_date", "shape": "dot", "title": "Date of the sale"}, {"color": "#33a02c", "id": "quantity", "label": "quantity", "shape": "dot", "title": "Quantity of products sold"}, {"color": "#33a02c", "id": "total_amount", "label": "total_amount", "shape": "dot", "title": "Total amount for the sale"}, {"color": "#33a02c", "id": "sales_channel", "label": "sales_channel", "shape": "dot", "title": "Channel through which the sale was made (e.g., Online, In-store)"}, {"color": "#33a02c", "id": "payment_method", "label": "payment_method", "shape": "dot", "title": "Payment method used for the sale"}, {"color": "#33a02c", "id": "discount", "label": "discount", "shape": "dot", "title": "Discount applied to the sale"}, {"color": "#33a02c", "id": "sales_rep", "label": "sales_rep", "shape": "dot", "title": "Sales representative handling the sale"}, {"color": "#33a02c", "id": "delivery_date", "label": "delivery_date", "shape": "dot", "title": "Delivery date of the sold product"}, {"color": "#33a02c", "id": "delivery_status", "label": "delivery_status", "shape": "dot", "title": "Delivery status of the sold product"}, {"color": "#33a02c", "id": "invoice_number", "label": "invoice_number", "shape": "dot", "title": "Invoice number for the sale"}, {"color": "#33a02c", "id": "shipping_cost", "label": "shipping_cost", "shape": "dot", "title": "Shipping cost for the sale"}, {"color": "#33a02c", "id": "tax_amount", "label": "tax_amount", "shape": "dot", "title": "Tax amount applied to the sale"}, {"color": "#1f78b4", "id": "support_tickets", "label": "support_tickets", "shape": "dot", "title": "Stores customer support ticket information"}, {"color": "#33a02c", "id": "ticket_id", "label": "ticket_id", "shape": "dot", "title": "Unique identifier for each support ticket"}, {"color": "#33a02c", "id": "issue_date", "label": "issue_date", "shape": "dot", "title": "Date the issue was reported"}, {"color": "#33a02c", "id": "issue_type", "label": "issue_type", "shape": "dot", "title": "Type of issue (e.g., Hardware, Software)"}, {"color": "#33a02c", "id": "resolution_date", "label": "resolution_date", "shape": "dot", "title": "Date the issue was resolved"}, {"color": "#33a02c", "id": "status", "label": "status", "shape": "dot", "title": "Status of the ticket (e.g., Open, Closed)"}, {"color": "#33a02c", "id": "support_agent", "label": "support_agent", "shape": "dot", "title": "Support agent handling the ticket"}, {"color": "#33a02c", "id": "priority", "label": "priority", "shape": "dot", "title": "Priority level of the ticket"}, {"color": "#33a02c", "id": "response_time", "label": "response_time", "shape": "dot", "title": "Time taken to respond to the ticket"}, {"color": "#33a02c", "id": "issue_description", "label": "issue_description", "shape": "dot", "title": "Description of the issue"}, {"color": "#33a02c", "id": "resolution_details", "label": "resolution_details", "shape": "dot", "title": "Details of the resolution"}, {"color": "#33a02c", "id": "feedback_score", "label": "feedback_score", "shape": "dot", "title": "Feedback score given by the customer"}, {"color": "#33a02c", "id": "follow_up_date", "label": "follow_up_date", "shape": "dot", "title": "Date for a follow-up on the ticket"}, {"color": "#1f78b4", "id": "marketing_campaigns", "label": "marketing_campaigns", "shape": "dot", "title": "Stores marketing campaign information"}, {"color": "#33a02c", "id": "campaign_id", "label": "campaign_id", "shape": "dot", "title": "Unique identifier for each campaign"}, {"color": "#33a02c", "id": "campaign_name", "label": "campaign_name", "shape": "dot", "title": "Name of the campaign"}, {"color": "#33a02c", "id": "start_date", "label": "start_date", "shape": "dot", "title": "Start date of the campaign"}, {"color": "#33a02c", "id": "end_date", "label": "end_date", "shape": "dot", "title": "End date of the campaign"}, {"color": "#33a02c", "id": "budget", "label": "budget", "shape": "dot", "title": "Budget allocated for the campaign"}, {"color": "#33a02c", "id": "target_audience", "label": "target_audience", "shape": "dot", "title": "Target audience for the campaign"}, {"color": "#33a02c", "id": "channels", "label": "channels", "shape": "dot", "title": "Marketing channels used in the campaign (e.g., TV, Social Media)"}, {"color": "#33a02c", "id": "goal", "label": "goal", "shape": "dot", "title": "Primary goal of the campaign (e.g., Brand Awareness, Lead Generation)"}, {"color": "#33a02c", "id": "region", "label": "region", "shape": "dot", "title": "Geographical region targeted by the campaign"}, {"color": "#33a02c", "id": "creative_idea", "label": "creative_idea", "shape": "dot", "title": "Creative idea or theme of the campaign"}, {"color": "#33a02c", "id": "ad_spend", "label": "ad_spend", "shape": "dot", "title": "Amount spent on advertising during the campaign"}, {"color": "#33a02c", "id": "leads_generated", "label": "leads_generated", "shape": "dot", "title": "Number of leads generated through the campaign"}, {"color": "#33a02c", "id": "conversions", "label": "conversions", "shape": "dot", "title": "Number of conversions achieved through the campaign"}, {"color": "#33a02c", "id": "roi", "label": "roi", "shape": "dot", "title": "Return on investment for the campaign"}, {"color": "#1f78b4", "id": "employees", "label": "employees", "shape": "dot", "title": "Stores employee information"}, {"color": "#33a02c", "id": "employee_id", "label": "employee_id", "shape": "dot", "title": "Unique identifier for each employee"}, {"color": "#33a02c", "id": "first_name", "label": "first_name", "shape": "dot", "title": "First name of the employee"}, {"color": "#33a02c", "id": "last_name", "label": "last_name", "shape": "dot", "title": "Last name of the employee"}, {"color": "#33a02c", "id": "email", "label": "email", "shape": "dot", "title": "Email address of the employee"}, {"color": "#33a02c", "id": "phone_number", "label": "phone_number", "shape": "dot", "title": "Phone number of the employee"}, {"color": "#33a02c", "id": "hire_date", "label": "hire_date", "shape": "dot", "title": "Date the employee was hired"}, {"color": "#33a02c", "id": "job_title", "label": "job_title", "shape": "dot", "title": "Job title of the employee"}, {"color": "#33a02c", "id": "department", "label": "department", "shape": "dot", "title": "Department where the employee works"}, {"color": "#33a02c", "id": "manager_id", "label": "manager_id", "shape": "dot", "title": "ID of the employee\u0027s manager"}, {"color": "#33a02c", "id": "salary", "label": "salary", "shape": "dot", "title": "Annual salary of the employee"}, {"color": "#33a02c", "id": "bonus", "label": "bonus", "shape": "dot", "title": "Annual bonus of the employee"}, {"color": "#33a02c", "id": "commission_pct", "label": "commission_pct", "shape": "dot", "title": "Commission percentage of the employee"}, {"color": "#33a02c", "id": "address", "label": "address", "shape": "dot", "title": "Address of the employee"}, {"color": "#33a02c", "id": "city", "label": "city", "shape": "dot", "title": "City of the employee"}, {"color": "#33a02c", "id": "state", "label": "state", "shape": "dot", "title": "State of the employee"}, {"color": "#1f78b4", "id": "departments", "label": "departments", "shape": "dot", "title": "Stores department information"}, {"color": "#33a02c", "id": "department_id", "label": "department_id", "shape": "dot", "title": "Unique identifier for each department"}, {"color": "#33a02c", "id": "department_name", "label": "department_name", "shape": "dot", "title": "Name of the department"}, {"color": "#33a02c", "id": "location", "label": "location", "shape": "dot", "title": "Location of the department"}, {"color": "#33a02c", "id": "number_of_employees", "label": "number_of_employees", "shape": "dot", "title": "Number of employees in the department"}, {"color": "#33a02c", "id": "established_date", "label": "established_date", "shape": "dot", "title": "Date the department was established"}, {"color": "#33a02c", "id": "department_goal", "label": "department_goal", "shape": "dot", "title": "Primary goal of the department"}, {"color": "#33a02c", "id": "performance_rating", "label": "performance_rating", "shape": "dot", "title": "Performance rating of the department"}, {"color": "#33a02c", "id": "primary_function", "label": "primary_function", "shape": "dot", "title": "Primary function of the department"}, {"color": "#33a02c", "id": "subsidiary", "label": "subsidiary", "shape": "dot", "title": "Subsidiary under which the department operates"}, {"color": "#33a02c", "id": "main_product", "label": "main_product", "shape": "dot", "title": "Main product the department deals with"}, {"color": "#33a02c", "id": "strategy", "label": "strategy", "shape": "dot", "title": "Strategic goals of the department"}, {"color": "#1f78b4", "id": "inventory", "label": "inventory", "shape": "dot", "title": "Stores inventory information"}, {"color": "#33a02c", "id": "inventory_id", "label": "inventory_id", "shape": "dot", "title": "Unique identifier for each inventory record"}, {"color": "#33a02c", "id": "warehouse_location", "label": "warehouse_location", "shape": "dot", "title": "Location of the warehouse"}, {"color": "#33a02c", "id": "reorder_level", "label": "reorder_level", "shape": "dot", "title": "Stock level at which reorder is needed"}, {"color": "#33a02c", "id": "reorder_quantity", "label": "reorder_quantity", "shape": "dot", "title": "Quantity to reorder when stock is low"}, {"color": "#33a02c", "id": "supplier_id", "label": "supplier_id", "shape": "dot", "title": "ID of the product supplier"}, {"color": "#33a02c", "id": "batch_number", "label": "batch_number", "shape": "dot", "title": "Batch number of the product"}, {"color": "#33a02c", "id": "expiry_date", "label": "expiry_date", "shape": "dot", "title": "Expiry date of the product batch"}, {"color": "#33a02c", "id": "manufacture_date", "label": "manufacture_date", "shape": "dot", "title": "Manufacture date of the product batch"}, {"color": "#33a02c", "id": "storage_conditions", "label": "storage_conditions", "shape": "dot", "title": "Storage conditions for the product"}, {"color": "#33a02c", "id": "last_restock_date", "label": "last_restock_date", "shape": "dot", "title": "Date when the product was last restocked"}, {"color": "#33a02c", "id": "lead_time", "label": "lead_time", "shape": "dot", "title": "Lead time for product replenishment"}, {"color": "#33a02c", "id": "cost_per_unit", "label": "cost_per_unit", "shape": "dot", "title": "Cost per unit of the product"}, {"color": "#33a02c", "id": "total_value", "label": "total_value", "shape": "dot", "title": "Total value of the inventory"}, {"color": "#1f78b4", "id": "suppliers", "label": "suppliers", "shape": "dot", "title": "Stores supplier information"}, {"color": "#33a02c", "id": "supplier_name", "label": "supplier_name", "shape": "dot", "title": "Name of the supplier"}, {"color": "#33a02c", "id": "contact_name", "label": "contact_name", "shape": "dot", "title": "Contact person\u0027s name at the supplier"}, {"color": "#33a02c", "id": "contact_email", "label": "contact_email", "shape": "dot", "title": "Contact person\u0027s email at the supplier"}, {"color": "#33a02c", "id": "contact_phone", "label": "contact_phone", "shape": "dot", "title": "Contact person\u0027s phone number at the supplier"}, {"color": "#33a02c", "id": "zip_code", "label": "zip_code", "shape": "dot", "title": "ZIP code of the supplier\u0027s location"}, {"color": "#33a02c", "id": "country", "label": "country", "shape": "dot", "title": "Country where the supplier is located"}, {"color": "#33a02c", "id": "products_supplied", "label": "products_supplied", "shape": "dot", "title": "Products supplied by the supplier"}, {"color": "#33a02c", "id": "payment_terms", "label": "payment_terms", "shape": "dot", "title": "Payment terms agreed with the supplier"}, {"color": "#33a02c", "id": "delivery_schedule", "label": "delivery_schedule", "shape": "dot", "title": "Delivery schedule agreed with the supplier"}, {"color": "#33a02c", "id": "last_order_date", "label": "last_order_date", "shape": "dot", "title": "Date when the last order was placed with the supplier"}, {"color": "#1f78b4", "id": "orders", "label": "orders", "shape": "dot", "title": "Stores order information"}, {"color": "#33a02c", "id": "order_id", "label": "order_id", "shape": "dot", "title": "Unique identifier for each order"}, {"color": "#33a02c", "id": "order_date", "label": "order_date", "shape": "dot", "title": "Date when the order was placed"}, {"color": "#33a02c", "id": "order_status", "label": "order_status", "shape": "dot", "title": "Current status of the order (e.g., Processing, Shipped, Delivered)"}, {"color": "#33a02c", "id": "shipping_date", "label": "shipping_date", "shape": "dot", "title": "Date when the order was shipped"}, {"color": "#33a02c", "id": "shipping_method", "label": "shipping_method", "shape": "dot", "title": "Shipping method used for the order"}, {"color": "#33a02c", "id": "tracking_number", "label": "tracking_number", "shape": "dot", "title": "Tracking number for the shipment"}, {"color": "#33a02c", "id": "billing_address", "label": "billing_address", "shape": "dot", "title": "Billing address for the order"}, {"color": "#33a02c", "id": "shipping_address", "label": "shipping_address", "shape": "dot", "title": "Shipping address for the order"}, {"color": "#33a02c", "id": "discount_amount", "label": "discount_amount", "shape": "dot", "title": "Discount amount applied to the order"}, {"color": "#33a02c", "id": "currency", "label": "currency", "shape": "dot", "title": "Currency in which the order was placed"}, {"color": "#1f78b4", "id": "customers", "label": "customers", "shape": "dot", "title": "Stores customer information"}, {"color": "#33a02c", "id": "registration_date", "label": "registration_date", "shape": "dot", "title": "Date the customer registered"}, {"color": "#33a02c", "id": "date_of_birth", "label": "date_of_birth", "shape": "dot", "title": "Date of birth of the customer"}, {"color": "#33a02c", "id": "gender", "label": "gender", "shape": "dot", "title": "Gender of the customer"}, {"color": "#33a02c", "id": "loyalty_status", "label": "loyalty_status", "shape": "dot", "title": "Loyalty status of the customer (e.g., Gold, Silver)"}, {"color": "#33a02c", "id": "last_purchase_date", "label": "last_purchase_date", "shape": "dot", "title": "Date of the last purchase made by the customer"}]);
+                  edges = new vis.DataSet([{"from": "products", "to": "product_id"}, {"from": "products", "to": "product_name"}, {"from": "products", "to": "category"}, {"from": "products", "to": "launch_date"}, {"from": "products", "to": "price"}, {"from": "products", "to": "manufacturer"}, {"from": "products", "to": "warranty_period"}, {"from": "products", "to": "stock_quantity"}, {"from": "products", "to": "rating"}, {"from": "products", "to": "dimensions"}, {"from": "products", "to": "weight"}, {"from": "products", "to": "color"}, {"from": "products", "to": "material"}, {"from": "products", "to": "power_usage"}, {"from": "products", "to": "model_number"}, {"from": "sales", "to": "sale_id"}, {"from": "sales", "to": "customer_id"}, {"from": "sales", "to": "product_id"}, {"from": "sales", "to": "sale_date"}, {"from": "sales", "to": "quantity"}, {"from": "sales", "to": "total_amount"}, {"from": "sales", "to": "sales_channel"}, {"from": "sales", "to": "payment_method"}, {"from": "sales", "to": "discount"}, {"from": "sales", "to": "sales_rep"}, {"from": "sales", "to": "delivery_date"}, {"from": "sales", "to": "delivery_status"}, {"from": "sales", "to": "invoice_number"}, {"from": "sales", "to": "shipping_cost"}, {"from": "sales", "to": "tax_amount"}, {"from": "support_tickets", "to": "ticket_id"}, {"from": "support_tickets", "to": "customer_id"}, {"from": "support_tickets", "to": "product_id"}, {"from": "support_tickets", "to": "issue_date"}, {"from": "support_tickets", "to": "issue_type"}, {"from": "support_tickets", "to": "resolution_date"}, {"from": "support_tickets", "to": "status"}, {"from": "support_tickets", "to": "support_agent"}, {"from": "support_tickets", "to": "priority"}, {"from": "support_tickets", "to": "response_time"}, {"from": "support_tickets", "to": "issue_description"}, {"from": "support_tickets", "to": "resolution_details"}, {"from": "support_tickets", "to": "feedback_score"}, {"from": "support_tickets", "to": "follow_up_date"}, {"from": "support_tickets", "to": "category"}, {"from": "marketing_campaigns", "to": "campaign_id"}, {"from": "marketing_campaigns", "to": "campaign_name"}, {"from": "marketing_campaigns", "to": "start_date"}, {"from": "marketing_campaigns", "to": "end_date"}, {"from": "marketing_campaigns", "to": "budget"}, {"from": "marketing_campaigns", "to": "target_audience"}, {"from": "marketing_campaigns", "to": "product_id"}, {"from": "marketing_campaigns", "to": "channels"}, {"from": "marketing_campaigns", "to": "goal"}, {"from": "marketing_campaigns", "to": "region"}, {"from": "marketing_campaigns", "to": "creative_idea"}, {"from": "marketing_campaigns", "to": "ad_spend"}, {"from": "marketing_campaigns", "to": "leads_generated"}, {"from": "marketing_campaigns", "to": "conversions"}, {"from": "marketing_campaigns", "to": "roi"}, {"from": "employees", "to": "employee_id"}, {"from": "employees", "to": "first_name"}, {"from": "employees", "to": "last_name"}, {"from": "employees", "to": "email"}, {"from": "employees", "to": "phone_number"}, {"from": "employees", "to": "hire_date"}, {"from": "employees", "to": "job_title"}, {"from": "employees", "to": "department"}, {"from": "employees", "to": "manager_id"}, {"from": "employees", "to": "salary"}, {"from": "employees", "to": "bonus"}, {"from": "employees", "to": "commission_pct"}, {"from": "employees", "to": "address"}, {"from": "employees", "to": "city"}, {"from": "employees", "to": "state"}, {"from": "departments", "to": "department_id"}, {"from": "departments", "to": "department_name"}, {"from": "departments", "to": "manager_id"}, {"from": "departments", "to": "location"}, {"from": "departments", "to": "budget"}, {"from": "departments", "to": "phone_number"}, {"from": "departments", "to": "email"}, {"from": "departments", "to": "number_of_employees"}, {"from": "departments", "to": "established_date"}, {"from": "departments", "to": "department_goal"}, {"from": "departments", "to": "performance_rating"}, {"from": "departments", "to": "primary_function"}, {"from": "departments", "to": "subsidiary"}, {"from": "departments", "to": "main_product"}, {"from": "departments", "to": "strategy"}, {"from": "inventory", "to": "inventory_id"}, {"from": "inventory", "to": "product_id"}, {"from": "inventory", "to": "warehouse_location"}, {"from": "inventory", "to": "stock_quantity"}, {"from": "inventory", "to": "reorder_level"}, {"from": "inventory", "to": "reorder_quantity"}, {"from": "inventory", "to": "supplier_id"}, {"from": "inventory", "to": "batch_number"}, {"from": "inventory", "to": "expiry_date"}, {"from": "inventory", "to": "manufacture_date"}, {"from": "inventory", "to": "storage_conditions"}, {"from": "inventory", "to": "last_restock_date"}, {"from": "inventory", "to": "lead_time"}, {"from": "inventory", "to": "cost_per_unit"}, {"from": "inventory", "to": "total_value"}, {"from": "suppliers", "to": "supplier_id"}, {"from": "suppliers", "to": "supplier_name"}, {"from": "suppliers", "to": "contact_name"}, {"from": "suppliers", "to": "contact_email"}, {"from": "suppliers", "to": "contact_phone"}, {"from": "suppliers", "to": "address"}, {"from": "suppliers", "to": "city"}, {"from": "suppliers", "to": "state"}, {"from": "suppliers", "to": "zip_code"}, {"from": "suppliers", "to": "country"}, {"from": "suppliers", "to": "products_supplied"}, {"from": "suppliers", "to": "rating"}, {"from": "suppliers", "to": "payment_terms"}, {"from": "suppliers", "to": "delivery_schedule"}, {"from": "suppliers", "to": "last_order_date"}, {"from": "orders", "to": "order_id"}, {"from": "orders", "to": "customer_id"}, {"from": "orders", "to": "order_date"}, {"from": "orders", "to": "order_status"}, {"from": "orders", "to": "shipping_date"}, {"from": "orders", "to": "delivery_date"}, {"from": "orders", "to": "shipping_method"}, {"from": "orders", "to": "tracking_number"}, {"from": "orders", "to": "billing_address"}, {"from": "orders", "to": "shipping_address"}, {"from": "orders", "to": "payment_method"}, {"from": "orders", "to": "total_amount"}, {"from": "orders", "to": "tax_amount"}, {"from": "orders", "to": "discount_amount"}, {"from": "orders", "to": "currency"}, {"from": "customers", "to": "customer_id"}, {"from": "customers", "to": "first_name"}, {"from": "customers", "to": "last_name"}, {"from": "customers", "to": "email"}, {"from": "customers", "to": "phone_number"}, {"from": "customers", "to": "registration_date"}, {"from": "customers", "to": "country"}, {"from": "customers", "to": "address"}, {"from": "customers", "to": "city"}, {"from": "customers", "to": "state"}, {"from": "customers", "to": "zip_code"}, {"from": "customers", "to": "date_of_birth"}, {"from": "customers", "to": "gender"}, {"from": "customers", "to": "loyalty_status"}, {"from": "customers", "to": "last_purchase_date"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
