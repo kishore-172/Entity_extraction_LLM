@@ -1,0 +1,699 @@
+@prefix ns1: <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ns1:customers a ns1:Table ;
+    rdfs:label "customers" ;
+    ns1:description "Stores customer information" ;
+    ns1:hasColumn ns1:address,
+        ns1:city,
+        ns1:country,
+        ns1:customer_id,
+        ns1:date_of_birth,
+        ns1:email,
+        ns1:first_name,
+        ns1:gender,
+        ns1:last_name,
+        ns1:last_purchase_date,
+        ns1:loyalty_status,
+        ns1:phone_number,
+        ns1:registration_date,
+        ns1:state,
+        ns1:zip_code .
+
+ns1:departments a ns1:Table ;
+    rdfs:label "departments" ;
+    ns1:description "Stores department information" ;
+    ns1:hasColumn ns1:budget,
+        ns1:department_goal,
+        ns1:department_id,
+        ns1:department_name,
+        ns1:email,
+        ns1:established_date,
+        ns1:location,
+        ns1:main_product,
+        ns1:manager_id,
+        ns1:number_of_employees,
+        ns1:performance_rating,
+        ns1:phone_number,
+        ns1:primary_function,
+        ns1:strategy,
+        ns1:subsidiary .
+
+ns1:employees a ns1:Table ;
+    rdfs:label "employees" ;
+    ns1:description "Stores employee information" ;
+    ns1:hasColumn ns1:address,
+        ns1:bonus,
+        ns1:city,
+        ns1:commission_pct,
+        ns1:department,
+        ns1:email,
+        ns1:employee_id,
+        ns1:first_name,
+        ns1:hire_date,
+        ns1:job_title,
+        ns1:last_name,
+        ns1:manager_id,
+        ns1:phone_number,
+        ns1:salary,
+        ns1:state .
+
+ns1:inventory a ns1:Table ;
+    rdfs:label "inventory" ;
+    ns1:description "Stores inventory information" ;
+    ns1:hasColumn ns1:batch_number,
+        ns1:cost_per_unit,
+        ns1:expiry_date,
+        ns1:inventory_id,
+        ns1:last_restock_date,
+        ns1:lead_time,
+        ns1:manufacture_date,
+        ns1:product_id,
+        ns1:reorder_level,
+        ns1:reorder_quantity,
+        ns1:stock_quantity,
+        ns1:storage_conditions,
+        ns1:supplier_id,
+        ns1:total_value,
+        ns1:warehouse_location .
+
+ns1:marketing_campaigns a ns1:Table ;
+    rdfs:label "marketing_campaigns" ;
+    ns1:description "Stores marketing campaign information" ;
+    ns1:hasColumn ns1:ad_spend,
+        ns1:budget,
+        ns1:campaign_id,
+        ns1:campaign_name,
+        ns1:channels,
+        ns1:conversions,
+        ns1:creative_idea,
+        ns1:end_date,
+        ns1:goal,
+        ns1:leads_generated,
+        ns1:product_id,
+        ns1:region,
+        ns1:roi,
+        ns1:start_date,
+        ns1:target_audience .
+
+ns1:orders a ns1:Table ;
+    rdfs:label "orders" ;
+    ns1:description "Stores order information" ;
+    ns1:hasColumn ns1:billing_address,
+        ns1:currency,
+        ns1:customer_id,
+        ns1:delivery_date,
+        ns1:discount_amount,
+        ns1:order_date,
+        ns1:order_id,
+        ns1:order_status,
+        ns1:payment_method,
+        ns1:shipping_address,
+        ns1:shipping_date,
+        ns1:shipping_method,
+        ns1:tax_amount,
+        ns1:total_amount,
+        ns1:tracking_number .
+
+ns1:products a ns1:Table ;
+    rdfs:label "products" ;
+    ns1:description "Stores product information" ;
+    ns1:hasColumn ns1:category,
+        ns1:color,
+        ns1:dimensions,
+        ns1:launch_date,
+        ns1:manufacturer,
+        ns1:material,
+        ns1:model_number,
+        ns1:power_usage,
+        ns1:price,
+        ns1:product_id,
+        ns1:product_name,
+        ns1:rating,
+        ns1:stock_quantity,
+        ns1:warranty_period,
+        ns1:weight .
+
+ns1:sales a ns1:Table ;
+    rdfs:label "sales" ;
+    ns1:description "Stores sales information" ;
+    ns1:hasColumn ns1:customer_id,
+        ns1:delivery_date,
+        ns1:delivery_status,
+        ns1:discount,
+        ns1:invoice_number,
+        ns1:payment_method,
+        ns1:product_id,
+        ns1:quantity,
+        ns1:sale_date,
+        ns1:sale_id,
+        ns1:sales_channel,
+        ns1:sales_rep,
+        ns1:shipping_cost,
+        ns1:tax_amount,
+        ns1:total_amount .
+
+ns1:suppliers a ns1:Table ;
+    rdfs:label "suppliers" ;
+    ns1:description "Stores supplier information" ;
+    ns1:hasColumn ns1:address,
+        ns1:city,
+        ns1:contact_email,
+        ns1:contact_name,
+        ns1:contact_phone,
+        ns1:country,
+        ns1:delivery_schedule,
+        ns1:last_order_date,
+        ns1:payment_terms,
+        ns1:products_supplied,
+        ns1:rating,
+        ns1:state,
+        ns1:supplier_id,
+        ns1:supplier_name,
+        ns1:zip_code .
+
+ns1:support_tickets a ns1:Table ;
+    rdfs:label "support_tickets" ;
+    ns1:description "Stores customer support ticket information" ;
+    ns1:hasColumn ns1:category,
+        ns1:customer_id,
+        ns1:feedback_score,
+        ns1:follow_up_date,
+        ns1:issue_date,
+        ns1:issue_description,
+        ns1:issue_type,
+        ns1:priority,
+        ns1:product_id,
+        ns1:resolution_date,
+        ns1:resolution_details,
+        ns1:response_time,
+        ns1:status,
+        ns1:support_agent,
+        ns1:ticket_id .
+
+ns1:ad_spend a ns1:Column ;
+    rdfs:label "ad_spend" ;
+    ns1:description "Amount spent on advertising during the campaign" .
+
+ns1:batch_number a ns1:Column ;
+    rdfs:label "batch_number" ;
+    ns1:description "Batch number of the product" .
+
+ns1:billing_address a ns1:Column ;
+    rdfs:label "billing_address" ;
+    ns1:description "Billing address for the order" .
+
+ns1:bonus a ns1:Column ;
+    rdfs:label "bonus" ;
+    ns1:description "Annual bonus of the employee" .
+
+ns1:campaign_id a ns1:Column ;
+    rdfs:label "campaign_id" ;
+    ns1:description "Unique identifier for each campaign" .
+
+ns1:campaign_name a ns1:Column ;
+    rdfs:label "campaign_name" ;
+    ns1:description "Name of the campaign" .
+
+ns1:channels a ns1:Column ;
+    rdfs:label "channels" ;
+    ns1:description "Marketing channels used in the campaign (e.g., TV, Social Media)" .
+
+ns1:color a ns1:Column ;
+    rdfs:label "color" ;
+    ns1:description "Color of the product" .
+
+ns1:commission_pct a ns1:Column ;
+    rdfs:label "commission_pct" ;
+    ns1:description "Commission percentage of the employee" .
+
+ns1:contact_email a ns1:Column ;
+    rdfs:label "contact_email" ;
+    ns1:description "Contact person's email at the supplier" .
+
+ns1:contact_name a ns1:Column ;
+    rdfs:label "contact_name" ;
+    ns1:description "Contact person's name at the supplier" .
+
+ns1:contact_phone a ns1:Column ;
+    rdfs:label "contact_phone" ;
+    ns1:description "Contact person's phone number at the supplier" .
+
+ns1:conversions a ns1:Column ;
+    rdfs:label "conversions" ;
+    ns1:description "Number of conversions achieved through the campaign" .
+
+ns1:cost_per_unit a ns1:Column ;
+    rdfs:label "cost_per_unit" ;
+    ns1:description "Cost per unit of the product" .
+
+ns1:creative_idea a ns1:Column ;
+    rdfs:label "creative_idea" ;
+    ns1:description "Creative idea or theme of the campaign" .
+
+ns1:currency a ns1:Column ;
+    rdfs:label "currency" ;
+    ns1:description "Currency in which the order was placed" .
+
+ns1:date_of_birth a ns1:Column ;
+    rdfs:label "date_of_birth" ;
+    ns1:description "Date of birth of the customer" .
+
+ns1:delivery_schedule a ns1:Column ;
+    rdfs:label "delivery_schedule" ;
+    ns1:description "Delivery schedule agreed with the supplier" .
+
+ns1:delivery_status a ns1:Column ;
+    rdfs:label "delivery_status" ;
+    ns1:description "Delivery status of the sold product" .
+
+ns1:department a ns1:Column ;
+    rdfs:label "department" ;
+    ns1:description "Department where the employee works" .
+
+ns1:department_goal a ns1:Column ;
+    rdfs:label "department_goal" ;
+    ns1:description "Primary goal of the department" .
+
+ns1:department_id a ns1:Column ;
+    rdfs:label "department_id" ;
+    ns1:description "Unique identifier for each department" .
+
+ns1:department_name a ns1:Column ;
+    rdfs:label "department_name" ;
+    ns1:description "Name of the department" .
+
+ns1:dimensions a ns1:Column ;
+    rdfs:label "dimensions" ;
+    ns1:description "Dimensions of the product" .
+
+ns1:discount a ns1:Column ;
+    rdfs:label "discount" ;
+    ns1:description "Discount applied to the sale" .
+
+ns1:discount_amount a ns1:Column ;
+    rdfs:label "discount_amount" ;
+    ns1:description "Discount amount applied to the order" .
+
+ns1:employee_id a ns1:Column ;
+    rdfs:label "employee_id" ;
+    ns1:description "Unique identifier for each employee" .
+
+ns1:end_date a ns1:Column ;
+    rdfs:label "end_date" ;
+    ns1:description "End date of the campaign" .
+
+ns1:established_date a ns1:Column ;
+    rdfs:label "established_date" ;
+    ns1:description "Date the department was established" .
+
+ns1:expiry_date a ns1:Column ;
+    rdfs:label "expiry_date" ;
+    ns1:description "Expiry date of the product batch" .
+
+ns1:feedback_score a ns1:Column ;
+    rdfs:label "feedback_score" ;
+    ns1:description "Feedback score given by the customer" .
+
+ns1:follow_up_date a ns1:Column ;
+    rdfs:label "follow_up_date" ;
+    ns1:description "Date for a follow-up on the ticket" .
+
+ns1:gender a ns1:Column ;
+    rdfs:label "gender" ;
+    ns1:description "Gender of the customer" .
+
+ns1:goal a ns1:Column ;
+    rdfs:label "goal" ;
+    ns1:description "Primary goal of the campaign (e.g., Brand Awareness, Lead Generation)" .
+
+ns1:hire_date a ns1:Column ;
+    rdfs:label "hire_date" ;
+    ns1:description "Date the employee was hired" .
+
+ns1:inventory_id a ns1:Column ;
+    rdfs:label "inventory_id" ;
+    ns1:description "Unique identifier for each inventory record" .
+
+ns1:invoice_number a ns1:Column ;
+    rdfs:label "invoice_number" ;
+    ns1:description "Invoice number for the sale" .
+
+ns1:issue_date a ns1:Column ;
+    rdfs:label "issue_date" ;
+    ns1:description "Date the issue was reported" .
+
+ns1:issue_description a ns1:Column ;
+    rdfs:label "issue_description" ;
+    ns1:description "Description of the issue" .
+
+ns1:issue_type a ns1:Column ;
+    rdfs:label "issue_type" ;
+    ns1:description "Type of issue (e.g., Hardware, Software)" .
+
+ns1:job_title a ns1:Column ;
+    rdfs:label "job_title" ;
+    ns1:description "Job title of the employee" .
+
+ns1:last_order_date a ns1:Column ;
+    rdfs:label "last_order_date" ;
+    ns1:description "Date when the last order was placed with the supplier" .
+
+ns1:last_purchase_date a ns1:Column ;
+    rdfs:label "last_purchase_date" ;
+    ns1:description "Date of the last purchase made by the customer" .
+
+ns1:last_restock_date a ns1:Column ;
+    rdfs:label "last_restock_date" ;
+    ns1:description "Date when the product was last restocked" .
+
+ns1:launch_date a ns1:Column ;
+    rdfs:label "launch_date" ;
+    ns1:description "Launch date of the product" .
+
+ns1:lead_time a ns1:Column ;
+    rdfs:label "lead_time" ;
+    ns1:description "Lead time for product replenishment" .
+
+ns1:leads_generated a ns1:Column ;
+    rdfs:label "leads_generated" ;
+    ns1:description "Number of leads generated through the campaign" .
+
+ns1:location a ns1:Column ;
+    rdfs:label "location" ;
+    ns1:description "Location of the department" .
+
+ns1:loyalty_status a ns1:Column ;
+    rdfs:label "loyalty_status" ;
+    ns1:description "Loyalty status of the customer (e.g., Gold, Silver)" .
+
+ns1:main_product a ns1:Column ;
+    rdfs:label "main_product" ;
+    ns1:description "Main product the department deals with" .
+
+ns1:manufacture_date a ns1:Column ;
+    rdfs:label "manufacture_date" ;
+    ns1:description "Manufacture date of the product batch" .
+
+ns1:manufacturer a ns1:Column ;
+    rdfs:label "manufacturer" ;
+    ns1:description "Manufacturer of the product" .
+
+ns1:material a ns1:Column ;
+    rdfs:label "material" ;
+    ns1:description "Material of the product" .
+
+ns1:model_number a ns1:Column ;
+    rdfs:label "model_number" ;
+    ns1:description "Model number of the product" .
+
+ns1:number_of_employees a ns1:Column ;
+    rdfs:label "number_of_employees" ;
+    ns1:description "Number of employees in the department" .
+
+ns1:order_date a ns1:Column ;
+    rdfs:label "order_date" ;
+    ns1:description "Date when the order was placed" .
+
+ns1:order_id a ns1:Column ;
+    rdfs:label "order_id" ;
+    ns1:description "Unique identifier for each order" .
+
+ns1:order_status a ns1:Column ;
+    rdfs:label "order_status" ;
+    ns1:description "Current status of the order (e.g., Processing, Shipped, Delivered)" .
+
+ns1:payment_terms a ns1:Column ;
+    rdfs:label "payment_terms" ;
+    ns1:description "Payment terms agreed with the supplier" .
+
+ns1:performance_rating a ns1:Column ;
+    rdfs:label "performance_rating" ;
+    ns1:description "Performance rating of the department" .
+
+ns1:power_usage a ns1:Column ;
+    rdfs:label "power_usage" ;
+    ns1:description "Power usage of the product" .
+
+ns1:price a ns1:Column ;
+    rdfs:label "price" ;
+    ns1:description "Price of the product" .
+
+ns1:primary_function a ns1:Column ;
+    rdfs:label "primary_function" ;
+    ns1:description "Primary function of the department" .
+
+ns1:priority a ns1:Column ;
+    rdfs:label "priority" ;
+    ns1:description "Priority level of the ticket" .
+
+ns1:product_name a ns1:Column ;
+    rdfs:label "product_name" ;
+    ns1:description "Name of the product" .
+
+ns1:products_supplied a ns1:Column ;
+    rdfs:label "products_supplied" ;
+    ns1:description "Products supplied by the supplier" .
+
+ns1:quantity a ns1:Column ;
+    rdfs:label "quantity" ;
+    ns1:description "Quantity of products sold" .
+
+ns1:region a ns1:Column ;
+    rdfs:label "region" ;
+    ns1:description "Geographical region targeted by the campaign" .
+
+ns1:registration_date a ns1:Column ;
+    rdfs:label "registration_date" ;
+    ns1:description "Date the customer registered" .
+
+ns1:reorder_level a ns1:Column ;
+    rdfs:label "reorder_level" ;
+    ns1:description "Stock level at which reorder is needed" .
+
+ns1:reorder_quantity a ns1:Column ;
+    rdfs:label "reorder_quantity" ;
+    ns1:description "Quantity to reorder when stock is low" .
+
+ns1:resolution_date a ns1:Column ;
+    rdfs:label "resolution_date" ;
+    ns1:description "Date the issue was resolved" .
+
+ns1:resolution_details a ns1:Column ;
+    rdfs:label "resolution_details" ;
+    ns1:description "Details of the resolution" .
+
+ns1:response_time a ns1:Column ;
+    rdfs:label "response_time" ;
+    ns1:description "Time taken to respond to the ticket" .
+
+ns1:roi a ns1:Column ;
+    rdfs:label "roi" ;
+    ns1:description "Return on investment for the campaign" .
+
+ns1:salary a ns1:Column ;
+    rdfs:label "salary" ;
+    ns1:description "Annual salary of the employee" .
+
+ns1:sale_date a ns1:Column ;
+    rdfs:label "sale_date" ;
+    ns1:description "Date of the sale" .
+
+ns1:sale_id a ns1:Column ;
+    rdfs:label "sale_id" ;
+    ns1:description "Unique identifier for each sale" .
+
+ns1:sales_channel a ns1:Column ;
+    rdfs:label "sales_channel" ;
+    ns1:description "Channel through which the sale was made (e.g., Online, In-store)" .
+
+ns1:sales_rep a ns1:Column ;
+    rdfs:label "sales_rep" ;
+    ns1:description "Sales representative handling the sale" .
+
+ns1:shipping_address a ns1:Column ;
+    rdfs:label "shipping_address" ;
+    ns1:description "Shipping address for the order" .
+
+ns1:shipping_cost a ns1:Column ;
+    rdfs:label "shipping_cost" ;
+    ns1:description "Shipping cost for the sale" .
+
+ns1:shipping_date a ns1:Column ;
+    rdfs:label "shipping_date" ;
+    ns1:description "Date when the order was shipped" .
+
+ns1:shipping_method a ns1:Column ;
+    rdfs:label "shipping_method" ;
+    ns1:description "Shipping method used for the order" .
+
+ns1:start_date a ns1:Column ;
+    rdfs:label "start_date" ;
+    ns1:description "Start date of the campaign" .
+
+ns1:status a ns1:Column ;
+    rdfs:label "status" ;
+    ns1:description "Status of the ticket (e.g., Open, Closed)" .
+
+ns1:storage_conditions a ns1:Column ;
+    rdfs:label "storage_conditions" ;
+    ns1:description "Storage conditions for the product" .
+
+ns1:strategy a ns1:Column ;
+    rdfs:label "strategy" ;
+    ns1:description "Strategic goals of the department" .
+
+ns1:subsidiary a ns1:Column ;
+    rdfs:label "subsidiary" ;
+    ns1:description "Subsidiary under which the department operates" .
+
+ns1:supplier_name a ns1:Column ;
+    rdfs:label "supplier_name" ;
+    ns1:description "Name of the supplier" .
+
+ns1:support_agent a ns1:Column ;
+    rdfs:label "support_agent" ;
+    ns1:description "Support agent handling the ticket" .
+
+ns1:target_audience a ns1:Column ;
+    rdfs:label "target_audience" ;
+    ns1:description "Target audience for the campaign" .
+
+ns1:ticket_id a ns1:Column ;
+    rdfs:label "ticket_id" ;
+    ns1:description "Unique identifier for each support ticket" .
+
+ns1:total_value a ns1:Column ;
+    rdfs:label "total_value" ;
+    ns1:description "Total value of the inventory" .
+
+ns1:tracking_number a ns1:Column ;
+    rdfs:label "tracking_number" ;
+    ns1:description "Tracking number for the shipment" .
+
+ns1:warehouse_location a ns1:Column ;
+    rdfs:label "warehouse_location" ;
+    ns1:description "Location of the warehouse" .
+
+ns1:warranty_period a ns1:Column ;
+    rdfs:label "warranty_period" ;
+    ns1:description "Warranty period of the product" .
+
+ns1:weight a ns1:Column ;
+    rdfs:label "weight" ;
+    ns1:description "Weight of the product" .
+
+ns1:budget a ns1:Column ;
+    rdfs:label "budget" ;
+    ns1:description "Annual budget of the department",
+        "Budget allocated for the campaign" .
+
+ns1:category a ns1:Column ;
+    rdfs:label "category" ;
+    ns1:description "Category of the issue",
+        "Product category (e.g., Smartphone, TV)" .
+
+ns1:country a ns1:Column ;
+    rdfs:label "country" ;
+    ns1:description "Country of the customer",
+        "Country where the supplier is located" .
+
+ns1:delivery_date a ns1:Column ;
+    rdfs:label "delivery_date" ;
+    ns1:description "Date when the order was delivered",
+        "Delivery date of the sold product" .
+
+ns1:first_name a ns1:Column ;
+    rdfs:label "first_name" ;
+    ns1:description "First name of the customer",
+        "First name of the employee" .
+
+ns1:last_name a ns1:Column ;
+    rdfs:label "last_name" ;
+    ns1:description "Last name of the customer",
+        "Last name of the employee" .
+
+ns1:manager_id a ns1:Column ;
+    rdfs:label "manager_id" ;
+    ns1:description "ID of the department manager",
+        "ID of the employee's manager" .
+
+ns1:payment_method a ns1:Column ;
+    rdfs:label "payment_method" ;
+    ns1:description "Payment method used for the order",
+        "Payment method used for the sale" .
+
+ns1:rating a ns1:Column ;
+    rdfs:label "rating" ;
+    ns1:description "Customer rating of the product",
+        "Rating of the supplier" .
+
+ns1:stock_quantity a ns1:Column ;
+    rdfs:label "stock_quantity" ;
+    ns1:description "Quantity of product in stock" .
+
+ns1:supplier_id a ns1:Column ;
+    rdfs:label "supplier_id" ;
+    ns1:description "ID of the product supplier",
+        "Unique identifier for each supplier" .
+
+ns1:tax_amount a ns1:Column ;
+    rdfs:label "tax_amount" ;
+    ns1:description "Tax amount applied to the sale",
+        "Tax amount for the order" .
+
+ns1:total_amount a ns1:Column ;
+    rdfs:label "total_amount" ;
+    ns1:description "Total amount for the order",
+        "Total amount for the sale" .
+
+ns1:zip_code a ns1:Column ;
+    rdfs:label "zip_code" ;
+    ns1:description "ZIP code of the customer",
+        "ZIP code of the supplier's location" .
+
+ns1:address a ns1:Column ;
+    rdfs:label "address" ;
+    ns1:description "Address of the customer",
+        "Address of the employee",
+        "Address of the supplier" .
+
+ns1:city a ns1:Column ;
+    rdfs:label "city" ;
+    ns1:description "City of the customer",
+        "City of the employee",
+        "City where the supplier is located" .
+
+ns1:email a ns1:Column ;
+    rdfs:label "email" ;
+    ns1:description "Contact email for the department",
+        "Email address of the customer",
+        "Email address of the employee" .
+
+ns1:phone_number a ns1:Column ;
+    rdfs:label "phone_number" ;
+    ns1:description "Contact phone number for the department",
+        "Phone number of the customer",
+        "Phone number of the employee" .
+
+ns1:state a ns1:Column ;
+    rdfs:label "state" ;
+    ns1:description "State of the customer",
+        "State of the employee",
+        "State where the supplier is located" .
+
+ns1:customer_id a ns1:Column ;
+    rdfs:label "customer_id" ;
+    ns1:description "ID of the customer who made the purchase",
+        "ID of the customer who placed the order",
+        "ID of the customer who raised the ticket",
+        "Unique identifier for each customer" .
+
+ns1:product_id a ns1:Column ;
+    rdfs:label "product_id" ;
+    ns1:description "ID of the product in inventory",
+        "ID of the product related to the ticket",
+        "ID of the promoted product",
+        "ID of the purchased product",
+        "Unique identifier for each product" .
+
