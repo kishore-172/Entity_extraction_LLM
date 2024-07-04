@@ -1,7 +1,7 @@
 langchain_openai
 langchain_core
-python-dotenv
-streamlit
+python-dotenv~=1.0.1
+streamlit~=1.35.0
 langchain_community
 #langserve
 #fastapi
@@ -22,3 +22,9 @@ sentence_transformers
 PyPDF2
 #langchain-objectbox
 nltk
+openai~=1.30.5
+rdflib~=7.0.0
+networkx~=3.3
+matplotlib~=3.9.0
+langchain~=0.2.1
+scikit-learn~=1.5.0

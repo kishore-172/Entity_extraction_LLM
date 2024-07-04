@@ -1,0 +1,33 @@
+Sure, here are 10 complex questions a data analyst might ask to understand which tables and columns to select for their analysis:
+
+Historical Trends Analysis:
+
+"Which tables contain historical data for sales and what are the key columns that track the sales amount and dates?"
+
+Customer Behavior Insights:
+
+"Where can I find detailed information about customer interactions and transactions, including customer IDs and transaction timestamps?"
+Product Performance:
+
+"Which tables and columns should I use to analyze the performance of different products, including metrics like sales volume, revenue, and product ratings?"
+Financial Reporting:
+
+"What are the main tables that store financial data, and which columns track income, expenses, and profit margins over time?"
+Operational Efficiency:
+
+"In which tables can I find data related to operational metrics, such as processing times, error rates, and resource utilization?"
+Marketing Campaign Analysis:
+
+"Which tables hold data on marketing campaigns, and what columns provide information on campaign dates, target audiences, and outcomes?"
+Customer Demographics:
+
+"Where is customer demographic information stored, and what columns include data on age, gender, location, and income levels?"
+Inventory Management:
+
+"Which tables and columns are used to track inventory levels, stock movements, and supplier details?"
+Employee Performance:
+
+"Where can I find data on employee performance, including tables and columns that track productivity, performance reviews, and training completion?"
+Service Usage Patterns:
+
+"Which tables contain data on service usage, and what columns include metrics like usage frequency, duration, and user feedback?"
